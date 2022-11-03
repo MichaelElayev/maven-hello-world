@@ -32,7 +32,7 @@ jobs:
         mvn -B package --file my-app/pom.xml
         mkdir artifacts && cp /home/runner/work/maven-hello-world/maven-hello-world/my-app/target/*.jar artifacts
         pwd
-        cd ./my-app | ls
+        tree
         
     - name: artifact
       uses: actions/upload-artifact@v2
