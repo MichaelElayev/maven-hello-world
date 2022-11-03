@@ -31,7 +31,7 @@ jobs:
       run: | 
         mvn -B package --file my-app/pom.xml
         mkdir staging && cp /home/runner/work/maven-hello-world/maven-hello-world/my-app/target/*.jar staging
-        
+        pwd
     - name: artifact
       uses: actions/upload-artifact@v2
       with:
