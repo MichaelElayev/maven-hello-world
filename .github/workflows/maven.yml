@@ -30,14 +30,14 @@ jobs:
     - name: Build with Maven
       run: | 
         mvn -B package --file my-app/pom.xml
-        mkdir artifacts && cp target/*.jar artifacts
+        mkdir artifacts && cp /home/runner/work/maven-hello-world/maven-hello-world/my-app/target/*.jar artifacts
         pwd
         
     - name: artifact
       uses: actions/upload-artifact@v2
       with:
         name: my-app.jar
-        path: target/my-app.jar
+        path: /home/runner/work/maven-hello-world/maven-hello-world/my-app/target/my-app.jar
         
     - name: Checkout
       uses: actions/checkout@v3
