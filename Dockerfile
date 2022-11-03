@@ -1,5 +1,5 @@
 FROM openjdk:8
-RUN useradd -m usr && passwd -d usr
+RUN useradd -m user && passwd -d user
 COPY ./my-app/target/my-app-1.0.0.jar ~/target 
-USER usr
+USER user
 CMD java -jar my-app-1.0.0.jar
