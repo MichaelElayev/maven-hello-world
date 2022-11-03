@@ -51,6 +51,7 @@ jobs:
       
     - name: Build and push
       run: |
-        docker build . -t mikedgame/github:my-app
+        docker image build . -t mikedgame/github:my-app
+        
 
 
