@@ -1,4 +1,4 @@
 FROM openjdk:8
 WORKDIR /proj
-COPY home/runner/work/maven-hello-world/maven-hello-world/my-app/target/my-app.jar .
+COPY artifacts/my-app-1.0.0.jar .
 CMD java -jar /proj/my-app.jar
