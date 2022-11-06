@@ -29,9 +29,8 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: | 
-        cd /home/runner/work/maven-hello-world/maven-hello-world/my-app
-        mvn -B versions:set -DnewVersion=1.0.1 -DgenerateBackupPoms=false
-        mvn package --file my-app/pom.xml
+        mvn versions:set -DnewVersion=1.0.1 -B package --file my-app/pom.xml
+        cat my-app/pom.xml
         tree
        
 
