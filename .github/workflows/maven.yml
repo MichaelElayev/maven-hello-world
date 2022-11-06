@@ -39,15 +39,6 @@ jobs:
         mvn versions:set -DnewVersion=$v -B package --file pom.xml
         rm temp version
         tree
-
-    - name: update file and push to remote
-      run: |
-          cd my-app
-          git config --global user.name "MichaelElayev"
-          git config --global user.email "michaelelayev@gmail.com@gmail.com"
-          git add -A
-          git commit -m "version update"
-          git push
           
     - name: Build docker image
       run: |
@@ -61,6 +52,15 @@ jobs:
         
     - name: Push docker image
       run: |
-        docker push mikedgame/github:my-app 
+        docker push mikedgame/github:my-app
+        
+    - name: update file and push to remote
+      run: |
+          cd my-app
+          git config --global user.name "MichaelElayev"
+          git config --global user.email "michaelelayev@gmail.com@gmail.com"
+          git add -A
+          git commit -m "version update"
+          git push
 
 
