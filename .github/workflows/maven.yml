@@ -29,10 +29,12 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: | 
-        mvn versions:set -DnewVersion=${GITHUB_RUN_NUMBER} -B package --file my-app/pom.xml
+        mvn package --file my-app/pom.xml
         mkdir proj_target && cp -r /home/runner/work/maven-hello-world/maven-hello-world/my-app/target/*.jar proj_target    
         tree
-       
+        cd /my-app/target/
+        cp *.jar `echo "${v%.*}.$((${v##*.}+1))"`
+        
     - name: Build docker image
       run: |
         docker image build -t mikedgame/github:my-app .
