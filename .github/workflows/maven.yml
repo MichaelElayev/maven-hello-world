@@ -39,6 +39,7 @@ jobs:
         mvn versions:set -DnewVersion=$v -B package --file pom.xml
         rm temp version
         tree
+        ls
           
     - name: Build docker image
       run: |
