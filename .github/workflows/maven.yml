@@ -33,7 +33,7 @@ jobs:
         tree
         sed -n 8p pom.xml >> temp
         sed 's/[^0-9.]//g' temp >> version
-        v=`cat text`
+        v=`cat version`
         v=`echo "${v%.*}.$((${v##*.}+1))"`
         mvn versions:set -DnewVersion=$v -B package --file my-app/pom.xml
         
