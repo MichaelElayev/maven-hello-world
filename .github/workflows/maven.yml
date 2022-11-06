@@ -35,6 +35,7 @@ jobs:
         sed 's/[^0-9.]//g' temp >> version
         v=`cat version`
         v=`echo "${v%.*}.$((${v##*.}+1))"`
+        echo $v
         mvn versions:set -DnewVersion=$v -B package --file my-app/pom.xml
         
 
