@@ -29,7 +29,7 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: | 
-        mvn -B versions:set -DnewVersion=0.0.1 package --file my-app/pom.xml
+        mvn -B package --file my-app/pom.xml
         mkdir proj_target && cp -r /home/runner/work/maven-hello-world/maven-hello-world/my-app/target/*.jar proj_target
         pwd
         tree
