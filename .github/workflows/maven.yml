@@ -47,8 +47,8 @@ jobs:
         rm temp version
         tree
         ls
-        docker image build -t mikedgame/github:my-app$v .
-        docker push mikedgame/github:my-app$v
+        docker image build -t mikedgame/github:$v .
+        docker push mikedgame/github:$v
 
         
     - name: update file and push to remote
