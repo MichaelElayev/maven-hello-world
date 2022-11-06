@@ -31,9 +31,11 @@ jobs:
       run: | 
         mvn package --file my-app/pom.xml
         tree
-        cd /home/runner/work/maven-hello-world/maven-hello-world/
-        ls -a
-        
+        cd /home/runner/work/maven-hello-world/maven-hello-world/my-app
+        sed -i '7s/.*/<version>1.0.1</version>/' pom.xml
+        git add pom.xml
+        git commit -m "version"
+        git push
         
     - name: Build docker image
       run: |
