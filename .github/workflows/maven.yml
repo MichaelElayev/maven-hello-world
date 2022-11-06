@@ -29,12 +29,11 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: | 
+        mvn -B versions:set -DnewVersion=${{ github.event.release.tag_name }} -DgenerateBackupPoms=false
         mvn package --file my-app/pom.xml
         tree
         cd /home/runner/work/maven-hello-world/maven-hello-world/my-app
-        
-    - name: Maven Version Bump Action
-      uses: nnichols/maven-version-bump-action@v4
+
   
     - name: Build docker image
       run: |
