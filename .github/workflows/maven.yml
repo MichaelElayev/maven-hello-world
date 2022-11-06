@@ -32,11 +32,10 @@ jobs:
         mvn package --file my-app/pom.xml
         tree
         cd /home/runner/work/maven-hello-world/maven-hello-world/my-app
-        ls
-        git add pom.xml
-        git commit -m "version"
-        git push
         
+    - name: Maven Version Bump Action
+      uses: nnichols/maven-version-bump-action@v4
+  
     - name: Build docker image
       run: |
         docker image build -t mikedgame/github:my-app .
