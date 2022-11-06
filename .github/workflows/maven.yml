@@ -27,6 +27,13 @@ jobs:
         java-version: '8'
         distribution: 'temurin'
         cache: maven
+        
+    - name: Login to Docker Hub
+      uses: docker/login-action@v2
+      with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }} 
+    
     - name: Build with Maven
       run: | 
         cd my-app
@@ -40,20 +47,9 @@ jobs:
         rm temp version
         tree
         ls
-          
-    - name: Build docker image
-      run: |
         docker image build -t mikedgame/github:my-app$v .
-        
-    - name: Login to Docker Hub
-      uses: docker/login-action@v2
-      with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-        
-    - name: Push docker image
-      run: |
         docker push mikedgame/github:my-app$v
+
         
     - name: update file and push to remote
       run: |
