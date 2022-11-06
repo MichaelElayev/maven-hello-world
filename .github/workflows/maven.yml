@@ -29,10 +29,14 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: | 
-        mvn versions:set -DnewVersion=1.0.2 -B package --file my-app/pom.xml
         cat my-app/pom.xml
         tree
-       
+        sed -n 8p pom.xml >> temp
+        sed 's/[^0-9.]//g' temp >> version
+        v=`cat text`
+        v=`echo "${v%.*}.$((${v##*.}+1))"`
+        mvn versions:set -DnewVersion=$v -B package --file my-app/pom.xml
+        
 
     - name: update file and push to remote
       run: |
