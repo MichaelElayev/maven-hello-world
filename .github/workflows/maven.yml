@@ -30,7 +30,7 @@ jobs:
     - name: Build with Maven
       run: | 
         mvn -B package --file my-app/pom.xml
-        mvn versions:set -DnewVersion=1.0.1-SNAPSHOT -f my-app/pom.xml
+        mvn versions:set -DnewVersion=1.0.1 -f my-app/pom.xml
         mkdir proj_target && cp -r /home/runner/work/maven-hello-world/maven-hello-world/my-app/target/*.jar proj_target
         
         pwd
