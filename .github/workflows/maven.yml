@@ -31,12 +31,12 @@ jobs:
       run: | 
         cd my-app
         tree
-        sed -n 8p pom.xml >> temp
+        sed -n 7p pom.xml >> temp
         sed 's/[^0-9.]//g' temp >> version
         v=`cat version`
         v=`echo "${v%.*}.$((${v##*.}+1))"`
         echo $v
-        mvn versions:set -DnewVersion=$v -B package --file my-app/pom.xml
+        mvn versions:set -DnewVersion=$v -B package --file pom.xml
         
 
     - name: update file and push to remote
