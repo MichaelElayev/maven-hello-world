@@ -33,7 +33,6 @@ jobs:
         tree
         cd /home/runner/work/maven-hello-world/maven-hello-world/my-app
         ls
-        sed -i '7s/.*/<version>1.0.1</version>/' pom.xml
         git add pom.xml
         git commit -m "version"
         git push
