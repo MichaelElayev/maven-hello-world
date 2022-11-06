@@ -29,10 +29,11 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: | 
+        cd /home/runner/work/maven-hello-world/maven-hello-world/my-app
         mvn -B versions:set -DnewVersion=${{ github.event.release.tag_name }} -DgenerateBackupPoms=false
         mvn package --file my-app/pom.xml
         tree
-        cd /home/runner/work/maven-hello-world/maven-hello-world/my-app
+       
 
   
     - name: Build docker image
