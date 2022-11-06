@@ -31,8 +31,9 @@ jobs:
       run: | 
         mvn package --file my-app/pom.xml
         tree
-        cd /home/runner/work/maven-hello-world/maven-hello-world/my-app/target/
-        cp *.jar `echo "${v%.*}.$((${v##*.}+1))"`
+        cd /home/runner/work/maven-hello-world/maven-hello-world/
+        ls -a
+        
         
     - name: Build docker image
       run: |
