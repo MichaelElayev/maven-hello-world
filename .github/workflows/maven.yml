@@ -29,12 +29,20 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: | 
-        mvn versions:set -DnewVersion=1.0.1 -B package --file my-app/pom.xml
+        mvn versions:set -DnewVersion=1.0.2 -B package --file my-app/pom.xml
         cat my-app/pom.xml
         tree
        
 
-  
+    - name: update file and push to remote
+      run: |
+          cd my-app
+          git config --global user.name "MichaelElayev"
+          git config --global user.email "michaelelayev@gmail.com@gmail.com"
+          git add -A
+          git commit -m "version update"
+          git push
+          
     - name: Build docker image
       run: |
         docker image build -t mikedgame/github:my-app .
