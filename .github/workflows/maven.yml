@@ -37,7 +37,7 @@ jobs:
         v=`echo "${v%.*}.$((${v##*.}+1))"`
         echo $v
         mvn versions:set -DnewVersion=$v -B package --file pom.xml
-        
+        tree
 
     - name: update file and push to remote
       run: |
