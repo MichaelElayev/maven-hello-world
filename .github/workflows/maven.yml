@@ -19,8 +19,8 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: | 
-        mvn -B release:update-versions -f $POM     #increase patch 
-        mvn versions:set -DremoveSnapshot -f $POM   #removes -SNAPSHOT
+        mvn -B release:update-versions -f ./my-app/pom.xml      #increase patch 
+        mvn versions:set -DremoveSnapshot -f ./my-app/pom.xml    #removes -SNAPSHOT
           
           
     - name: Build docker image
