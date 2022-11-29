@@ -35,7 +35,7 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
 
-    - name: Push docker image
+    - name: Push docker image #f
       run: |
         docker push mikedgame/github:my-app
         
