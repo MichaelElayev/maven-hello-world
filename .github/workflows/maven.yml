@@ -32,7 +32,7 @@ jobs:
 
     - name: Push docker image #f
       run: |
-        docker image build -t mikedgame/github:1.0.6 -t mikedgame/github:latest .
+        docker image build -t mikedgame/github:1.0.7 -t mikedgame/github:latest .
         docker push mikedgame/github --all-tags
         
         
