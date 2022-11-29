@@ -25,7 +25,7 @@ jobs:
           
     - name: Build docker image
       run: |
-        docker image build . -t mikedgame/github:1.0.1 -t mikedgame/github:latest 
+        docker image build . -t mikedgame/github:1.0.2 -t mikedgame/github:latest 
         
         
     - name: Login to Docker Hub
@@ -37,7 +37,7 @@ jobs:
 
     - name: Push docker image #f
       run: |
-        docker push mikedgame/github:1.0.1
+        docker push mikedgame/github:latest
         
         
     - name: update file and push to remote
