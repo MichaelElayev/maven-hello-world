@@ -33,7 +33,7 @@ jobs:
     - name: Push docker image #f
       run: |
         docker image build -t mikedgame/github:1.0.6 -t mikedgame/github:latest .
-        docker push mikedgame/github:1.0.6 --all-tags
+        docker push mikedgame/github --all-tags
         
         
     - name: update file and push to remote
